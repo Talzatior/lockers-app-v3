@@ -1,5 +1,7 @@
 .DS_STORE
 
+/Plan-app.xlsx
+
 /dist/
 /bazel-out
 /integration/bazel/bazel-*
