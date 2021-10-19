@@ -12,4 +12,8 @@ export class GenderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  genderSelector(value: string) {
+    console.log(value); //TODEL
+  }
+
 }
