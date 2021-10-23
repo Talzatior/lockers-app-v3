@@ -1,0 +1,12 @@
+.container {
+    width: 100%;
+}
+
+.logo img {
+    width: 375px;
+}
+
+.title {
+    margin-top: 20vh;
+    margin-bottom: 20vh
+}

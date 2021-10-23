@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewUserInfoService } from '../../services/new-user/new-user-info.service';
 
 @Component({
   selector: 'app-type-of',
@@ -7,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TypeOfComponent implements OnInit {
 
-  constructor() { }
+  constructor(private newUserInfoService: NewUserInfoService) { }
 
   ngOnInit(): void {
   }
 
   typeOfSelector(value: string) {
     console.log(value); //TODEL
+    this.newUserInfoService.setUserType(value)
   }
 
 }

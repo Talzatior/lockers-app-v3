@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewUserInfoService } from '../../services/new-user/new-user-info.service'
 
 @Component({
   selector: 'app-gender',
@@ -7,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private newUserInfoService: NewUserInfoService) { }
 
   ngOnInit(): void {
   }
 
   genderSelector(value: string) {
     console.log(value); //TODEL
+    this.newUserInfoService.setUserGender(value)
   }
 
 }

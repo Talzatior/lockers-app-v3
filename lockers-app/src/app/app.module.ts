@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { NewLockerModule } from './New-locker/new-locker.module';
@@ -17,7 +18,8 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NewLockerModule
+    NewLockerModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
