@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { DatePipe } from '@angular/common';
+
 import { AppRoutingModule } from './app-routing.module';
 import { NewLockerModule } from './New-locker/new-locker.module';
 import { AppComponent } from './app.component';
@@ -21,7 +23,7 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
     NewLockerModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ DatePipe ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

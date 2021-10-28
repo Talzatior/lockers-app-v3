@@ -1,5 +1,6 @@
-.container {
-    width: 100%;
+.title {
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 }
 
 .logo img {
@@ -7,6 +8,12 @@
 }
 
 .title {
-    margin-top: 20vh;
-    margin-bottom: 20vh
+    margin-top: 3vh;
+    margin-bottom: 7vh;
+}
+
+canvas {
+    border: 1px solid black;
+    width: 100%;
+    Height: 150px;
 }

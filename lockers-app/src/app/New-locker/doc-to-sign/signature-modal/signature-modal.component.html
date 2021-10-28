@@ -1,0 +1,26 @@
+<div class="mmodal-background"></div>
+<div class="mmodal">
+  <div class="row  m-1">
+    <div class="col-11">
+      <h3>Signature</h3>
+    </div>
+    <div class="col-1">
+      <div class="justify-content-end">
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body">
+    By signing this document, I understand and agree to the rules.
+    <div class="container-fluid">
+      <canvas #signaturePad style="width: 452px; height: 227px">
+        Votre navigateur ne supporte pas la balise HTML canvas.
+      </canvas>
+    </div>
+    <div class="container-fluid">
+      <button class="btn-primary" (click)="save()">Confirm</button>
+      <button class="btn-primary mx-3" (click)="clear()">Clear</button>
+      <button class="btn-primary" (click)="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
