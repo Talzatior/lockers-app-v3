@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="logo d-flex justify-content-end mb-5" id="to-print">
+<div class="container-fluid px-4">
+    <div class="logo d-flex justify-content-end" id="to-print">
         <div>
             <img src="../../../assets/Image/logo/JA_bmk_rgb_pos.png" alt="Jet Aviation Logo">
         </div>
@@ -10,20 +10,68 @@
     <div class="d-grid gap-3 col-12 mx-auto">
         <div class="row mb-3">
             <div class="col">
-                <p class="h3">Last name : {{ lastName }}</p>
+                <p class="h5">Last name : {{ lastName }}</p>
             </div>
             <div class="col">
-                <p class="h3">First name : {{ firstName }}</p>
+                <p class="h5">First name : {{ firstName }}</p>
             </div>
         </div>
         <div class="row mb-3">
             <div class="col">
-                <p class="h3">Personal N° : {{ personalNumber }}</p>
+                <p class="h5">Personal N° : {{ personalNumber }}</p>
             </div>
             <div class="col">
-                <p class="h3">Company : {{ company }}</p>
+                <p class="h5">Company : {{ company }}</p>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col">
+                <p class="h5">Locker N° : </p>
             </div>
         </div>
     </div>
+    <div class="container-fluid p-0">
+        <div class="row">
+            <p class="fs-3 fw-bold">REGISTRATION RULES:</p>
+        </div>
+        <div class="row ps-3 mb-3">
+            <ul>
+                <li>Only use the padlock provided by Security</li>
+                <li>Ensure the good condition of your locker is maintained</li>
+                <li>Don't store flammable, dangerous, PROHIBITED or valuable products / items in your locker</li>
+                <li>Your locker is personal, your key may not be copied or lent to other people</li>
+                <li>At the end of your contract of employement, your key must be returned</li>
+                <li>The Security Team has a spare key for your locker and can access it if necessary</li>
+                <li>Jet Aviation will not be responsible for any missing items or damages to your items</li>
+            </ul>
+        </div>
+        <div class="row mb-3">
+            <p class="fs-4 fw-bold">By signing this request, I understand and agree to the above rules,</p>
+        </div>
+    </div>
+    <div *ngIf="!isSigned" class="container-fluid mx-auto">
+        <button type="button" class="btn btn-primary" (click)="showModal()">
+            Sign the document
+          </button>
+    </div>
+    <div *ngIf="isSigned" class="container-fluid p-0">
+        <div class="row">
+            <div class="col-6">
+                <p class="h5 mb-2">Date : {{ today | date : 'dd-MM-yyyy'}}</p>
+            </div>
+            <div class="col-6">
+                <p class="h5 mb-2">Signature</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid p-0">
+      <div class="row">
+          <div class="col-6"></div>
+          <div class="col-6">
+              <img #sigImage src="" alt="">
+          </div>
+      </div>
+  </div>
+    <app-signature-modal *ngIf="popModal" (close)="closeModal($event)" (isSigned)="docIsSigned($event)" (saveImage)="importSignature($event)"></app-signature-modal>
 
 </div>
