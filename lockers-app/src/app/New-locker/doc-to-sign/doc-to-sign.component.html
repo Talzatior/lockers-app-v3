@@ -1,5 +1,5 @@
-<div class="container-fluid px-4">
-    <div class="logo d-flex justify-content-end" id="to-print">
+<div class="container-fluid px-4"  #toPrint id="toPrint">
+    <div class="logo d-flex justify-content-end">
         <div>
             <img src="../../../assets/Image/logo/JA_bmk_rgb_pos.png" alt="Jet Aviation Logo">
         </div>
@@ -45,7 +45,7 @@
                 <li>Jet Aviation will not be responsible for any missing items or damages to your items</li>
             </ul>
         </div>
-        <div class="row mb-3">
+        <div class="row my-5">
             <p class="fs-4 fw-bold">By signing this request, I understand and agree to the above rules,</p>
         </div>
     </div>
@@ -71,7 +71,9 @@
               <img #sigImage src="" alt="">
           </div>
       </div>
-  </div>
-    <app-signature-modal *ngIf="popModal" (close)="closeModal($event)" (isSigned)="docIsSigned($event)" (saveImage)="importSignature($event)"></app-signature-modal>
-
+    </div>
 </div>
+<div *ngIf="isSigned">
+  <button (click)="openPDF()">Save as PDF</button>
+</div>
+<app-signature-modal *ngIf="popModal" (close)="closeModal($event)" (isSigned)="docIsSigned($event)" (saveImage)="importSignature($event)"></app-signature-modal>
