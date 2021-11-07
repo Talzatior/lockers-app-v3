@@ -3,7 +3,6 @@ import {
   AfterViewInit,
   ViewChild,
   OnInit,
-  HostListener,
   Output,
   EventEmitter,
   ElementRef
@@ -26,10 +25,10 @@ export class SignatureModalComponent implements OnInit, AfterViewInit {
   private context!: CanvasRenderingContext2D;
   isSigning = false;
   img: any;
-  prevX: number = 0;
-  prevY: number = 0;
-  currX: number = 0;
-  currY: number = 0;
+  prevX: any;
+  prevY: any;
+  currX: any;
+  currY: any;
 
   color = '#041E42';
   lineWidth = 1;
@@ -62,7 +61,6 @@ export class SignatureModalComponent implements OnInit, AfterViewInit {
         // I store the coordinates of the first click on my canvas
         this.prevX = e.clientX - rect.left;
         this.prevY = e.clientY - rect.top;
-        console.log(this.prevX, this.prevY, this.isSigning);
       }
     )
 
@@ -71,11 +69,9 @@ export class SignatureModalComponent implements OnInit, AfterViewInit {
       (e: any) => {
         // I'm signing
         this.isSigning = true;
-
         // I store the coordinates of the first click on my canvas
-        this.prevX = e.clientX - rect.left;
-        this.prevY = e.clientY - rect.top;
-        console.log(this.prevX, this.prevY, this.isSigning);
+        this.prevX = e.touches[0].clientX - rect.left;
+        this.prevY = e.touches[0].clientY - rect.top;
       }
     )
 
@@ -83,11 +79,9 @@ export class SignatureModalComponent implements OnInit, AfterViewInit {
       'mousemove',
       (e: any) => {
         // If I'm signing
-        console.log(this.isSigning);
         if (this.isSigning) {
           this.currX = e.clientX - rect.left;
           this.currY = e.clientY - rect.top;
-          console.log(this.currX, this.currY);
           this.draw(this.prevX, this.prevY, this.currX, this.currY);
           this.prevX = this.currX;
           this.prevY = this.currY;
@@ -99,11 +93,9 @@ export class SignatureModalComponent implements OnInit, AfterViewInit {
       'touchmove',
       (e: any) => {
         // If I'm signing
-        console.log(this.isSigning);
         if (this.isSigning) {
-          this.currX = e.clientX - rect.left;
-          this.currY = e.clientY - rect.top;
-          console.log(this.currX, this.currY);
+          this.currX = e.touches[0].clientX - rect.left;
+          this.currY = e.touches[0].clientY - rect.top;
           this.draw(this.prevX, this.prevY, this.currX, this.currY);
           this.prevX = this.currX;
           this.prevY = this.currY;
