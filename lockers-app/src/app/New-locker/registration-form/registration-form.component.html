@@ -4,20 +4,39 @@
 <div class="d-grid gap-3 col-6 mx-auto">
   <form [formGroup]="newUserForm">
     <div class="form-floating mb-3">
-      <input formControlName="lastName" type="text" class="form-control" id="nameInput" placeholder="Dupont">
+      <input formControlName="lastName" type="text" class="form-control" id="nameInput" placeholder="X">
       <label for="nameInput">Last name</label>
     </div>
     <div class="form-floating mb-3">
-      <input formControlName="firstName" type="text" id="firstNameInput" class="form-control" placeholder="Jean">
+      <input formControlName="firstName" type="text" id="firstNameInput" class="form-control" placeholder="X">
       <label class="form-label" for="firstNameInput">First name</label>
     </div>
     <div class="form-floating mb-3">
-      <input formControlName="personalNumber" type="text" id="personalNumberInput" class="form-control" placeholder="207890">
+      <input formControlName="personalNumber" type="text" id="personalNumberInput" class="form-control" placeholder="X">
       <label class="form-label" for="personalNumberInput">Personnal number</label>
     </div>
     <div class="form-floating mb-5">
-      <input formControlName="company" type="text" id="companyInput" class="form-control" placeholder="Jet Aviation">
+      <input formControlName="company" type="text" id="companyInput" class="form-control" placeholder="X">
       <label class="form-label" for="companyInput">Company</label>
+    </div>
+  </form>
+</div>
+<div *ngIf="userGender === 'woman' && userType === 'mechanic'" class="d-grid gap-3 col-6 mx-auto mb-3">
+  <form [formGroup]="lockerNumberForm">
+    <div class="d-inline-flex justify-content-center">
+      <p class="me-3">Would you like one or two lockers ?</p>
+      <div class="form-check me-3">
+        <input class="form-check-input" type="radio" formControlName="lockerNumber" id="oneLocker" value="1" checked>
+        <label class="form-check-label" for="oneLocker">
+          1
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" formControlName="lockerNumber" id="twoLockers" value="2">
+        <label class="form-check-label" for="twoLockers">
+          2
+        </label>
+      </div>
     </div>
   </form>
 </div>
