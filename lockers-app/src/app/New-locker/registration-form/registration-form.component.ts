@@ -18,31 +18,32 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  // userGender: string= "";
-  // userType: string = "";
-
-  // typeOfUser() {
-  //   this.userGender = this.userTypeService.getUserGender();
-  //   this.userType = this.userTypeService.getUserType();
-  //   console.log(this.userGender + ", " + this.userType);
-  // }
-
   newUserForm: FormGroup = this.fb.group({
     lastName: ['', Validators.compose([Validators.required])],
     firstName: ['', Validators.compose([Validators.required])],
     personalNumber: ['', Validators.compose([])],
     company: ['', Validators.compose([Validators.required])]
-  })
+  });
+
+  lockerNumberForm: FormGroup = this.fb.group({
+    lockerNumber: ['1', Validators.required]
+  });
+
+  userGender: string = this.newUserInfoService.getUserGender();
+  userType: string = this.newUserInfoService.getUserType();
+  numberOfLocker = "";
 
   submitForm() {
-    const formValue = this.newUserForm.value;
-    this.newUserInfoService.setNewUserInfo(formValue['lastName'], formValue['firstName'], formValue['personalNumber'], formValue['company']);
+    const newUserFormValue = this.newUserForm.value;
+    this.newUserInfoService.setNewUserInfo(newUserFormValue['lastName'], newUserFormValue['firstName'], newUserFormValue['personalNumber'], newUserFormValue['company']);
 
-    console.log('Last Name : ' + this.newUserInfoService.newLockerUser.lastName);
-    console.log('First name : ' + this.newUserInfoService.newLockerUser.firstName);
-    console.log('Personal number : ' + this.newUserInfoService.newLockerUser.personalNumber);
-    console.log('Company : ' + this.newUserInfoService.newLockerUser.company);
+    console.log('Last Name : ' + this.newUserInfoService.newLockerUser.lastName); // TODEL
+    console.log('First name : ' + this.newUserInfoService.newLockerUser.firstName); // TODEL
+    console.log('Personal number : ' + this.newUserInfoService.newLockerUser.personalNumber); // TODEL
+    console.log('Company : ' + this.newUserInfoService.newLockerUser.company); // TODEL
+
+    let lockerNumberFormValue = this.lockerNumberForm.value;
+    console.log('Nombre de casier(s) à donner : ' + lockerNumberFormValue['lockerNumber']) // TODEL
 
     this.router.navigate(['/new-locker/docToSign']);
   }

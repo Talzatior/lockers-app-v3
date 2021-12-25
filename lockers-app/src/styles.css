@@ -4,3 +4,8 @@
   background-color: #041E42 !important;
   border-color: #041E42 !important;
 }
+
+body {
+  display: flex;
+  justify-content: center;
+}

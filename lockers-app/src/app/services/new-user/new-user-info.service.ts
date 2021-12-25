@@ -55,21 +55,4 @@ export class NewUserInfoService {
     return this.newLockerUser;
   }
 
-  // setUserName(value: string) {
-  //   this.userName = value;
-  // }
-
-  // setUserFirstName(value: string) {
-  //   this.userName = value;
-  // }
-
-  // setUserPersonalNumber(value: string) {
-  //   this.userName = value;
-  // }
-
-  // setUserCompany(value: string) {
-  //   this.userName = value;
-  // }
-
-
 }
